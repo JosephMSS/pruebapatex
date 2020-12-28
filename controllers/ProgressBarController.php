@@ -8,8 +8,13 @@ class ProgressBarController{
     {
         require_once 'models/progressBar.php';
         $progressBar=new ProgressBar();
-        $color=$_GET['color'];
+        $quantity=$_POST['quantity'];
+        $goal=$_POST['goal'];
+        $progressBar->setQuantity($quantity);
+        $progressBar->setGoal($goal);
+        $progress=$progressBar->getProgress();
         # show 
         require_once 'views/ProgressBar/create.php';
     }
+
 }
